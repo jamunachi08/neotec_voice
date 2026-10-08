@@ -1,0 +1,176 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-08 09:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "queue_name",
+  "strategy",
+  "ring_timeout",
+  "service_level_seconds",
+  "cb1",
+  "welcome_message",
+  "welcome_message_ar",
+  "sb_members",
+  "members",
+  "sb_over",
+  "overflow_type",
+  "overflow_queue",
+  "overflow_agent",
+  "overflow_number",
+  "unavailable_message",
+  "last_index"
+ ],
+ "fields": [
+  {
+   "fieldname": "queue_name",
+   "fieldtype": "Data",
+   "label": "Queue Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "strategy",
+   "fieldtype": "Select",
+   "label": "Strategy",
+   "options": "Ring All\nRound Robin\nLongest Idle\nFewest Calls",
+   "default": "Ring All",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "ring_timeout",
+   "fieldtype": "Int",
+   "label": "Ring timeout (s)",
+   "default": "25"
+  },
+  {
+   "fieldname": "service_level_seconds",
+   "fieldtype": "Int",
+   "label": "Service level target (s)",
+   "default": "20"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "welcome_message",
+   "fieldtype": "Small Text",
+   "label": "Welcome message (EN)"
+  },
+  {
+   "fieldname": "welcome_message_ar",
+   "fieldtype": "Small Text",
+   "label": "Welcome message (AR)"
+  },
+  {
+   "fieldname": "sb_members",
+   "fieldtype": "Section Break",
+   "label": "Members"
+  },
+  {
+   "fieldname": "members",
+   "fieldtype": "Table",
+   "label": "Members",
+   "options": "Voice Queue Member"
+  },
+  {
+   "fieldname": "sb_over",
+   "fieldtype": "Section Break",
+   "label": "When nobody is available"
+  },
+  {
+   "fieldname": "overflow_type",
+   "fieldtype": "Select",
+   "label": "Overflow to",
+   "options": "Voicemail\nQueue\nAgent\nNumber\nNone",
+   "default": "Voicemail"
+  },
+  {
+   "fieldname": "overflow_queue",
+   "fieldtype": "Link",
+   "label": "Overflow queue",
+   "options": "Voice Queue",
+   "depends_on": "eval:doc.overflow_type=='Queue'"
+  },
+  {
+   "fieldname": "overflow_agent",
+   "fieldtype": "Link",
+   "label": "Overflow agent",
+   "options": "Voice Agent",
+   "depends_on": "eval:doc.overflow_type=='Agent'"
+  },
+  {
+   "fieldname": "overflow_number",
+   "fieldtype": "Data",
+   "label": "Overflow number",
+   "depends_on": "eval:doc.overflow_type=='Number'"
+  },
+  {
+   "fieldname": "unavailable_message",
+   "fieldtype": "Small Text",
+   "label": "Message before hang-up",
+   "depends_on": "eval:doc.overflow_type=='None'"
+  },
+  {
+   "fieldname": "last_index",
+   "fieldtype": "Int",
+   "label": "Round-robin pointer",
+   "hidden": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-10-08 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec Voice",
+ "name": "Voice Queue",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "report": 1,
+   "export": 1
+  },
+  {
+   "role": "Voice Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "report": 1,
+   "export": 1
+  },
+  {
+   "role": "Voice Agent",
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "delete": 0,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "report": 1,
+   "export": 0
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "field:queue_name",
+ "naming_rule": "By fieldname"
+}

@@ -1,0 +1,86 @@
+Voice Hub,مركز الاتصالات
+Voice Console,لوحة الاتصالات
+Call,اتصال
+Calls today,مكالمات اليوم
+Answered,تم الرد
+Missed,فائتة
+Inbound,واردة
+Outbound,صادرة
+Avg talk,متوسط مدة المحادثة
+Avg wait,متوسط الانتظار
+Answered in 20s,الرد خلال 20 ثانية
+Agents,الموظفون
+Live calls,المكالمات الجارية
+Your status,حالتك
+Available,متاح
+Away,غير متواجد
+Offline,غير متصل
+On Call,في مكالمة
+Wrap Up,إنهاء المكالمة
+Number to call,الرقم المطلوب
+Incoming call,مكالمة واردة
+Calling,جارٍ الاتصال
+On call,في مكالمة
+Call ended,انتهت المكالمة
+Missed call,مكالمة فائتة
+Outcome,النتيجة
+Notes,ملاحظات
+Follow up on,المتابعة في
+Save outcome,حفظ النتيجة
+Outcome saved,تم حفظ النتيجة
+Call back,معاودة الاتصال
+Hang up,إنهاء
+Hide,إخفاء
+Skip,تخطي
+New lead,عميل محتمل جديد
+Unknown caller,متصل غير معروف
+Notes while you talk,ملاحظات أثناء المكالمة
+Credentials,بيانات الاعتماد
+Connect the vendor,ربط المزود
+Map agents,ربط الموظفين
+Numbers,الأرقام
+Activity,النشاط
+Save,حفظ
+Saved,تم الحفظ
+Create account,إنشاء حساب
+Test connection,اختبار الاتصال
+Connection works,الاتصال يعمل
+Connection failed,فشل الاتصال
+Copy,نسخ
+Download,تنزيل
+Save mapping,حفظ الربط
+Mapping saved,تم حفظ الربط
+Add number,إضافة رقم
+Sync numbers,مزامنة الأرقام
+Send test SMS,إرسال رسالة تجريبية
+SMS sent,تم إرسال الرسالة
+Rotate webhook token,تدوير رمز الربط
+Not connected,غير متصل
+Connected,متصل
+Your own PBX,سنترالك الخاص
+Cloud carriers,مزودو الاتصال السحابي
+SMS gateways,بوابات الرسائل النصية
+Anything else,أي نظام آخر
+Click-to-call,الاتصال بنقرة
+Inbound routing by Neotec,توجيه المكالمات الواردة عبر Neotec
+Live call events,أحداث المكالمات المباشرة
+Caller lookup & journaling,التعرف على المتصل وتسجيل المكالمات
+Browser softphone,هاتف المتصفح
+Recordings,التسجيلات
+SMS,الرسائل النصية
+Number sync,مزامنة الأرقام
+One-click provisioning,التهيئة بنقرة واحدة
+Remote hang-up,إنهاء عن بعد
+Open console,فتح لوحة الاتصالات
+Settings,الإعدادات
+Call log,سجل المكالمات
+Inbound routes,مسارات المكالمات الواردة
+Outbound routes,مسارات المكالمات الصادرة
+Queues,قوائم الانتظار
+Rate plans,خطط التسعير
+No calls in progress.,لا توجد مكالمات جارية.
+No agents configured.,لا يوجد موظفون مُعدّون.
+You are not configured as a Voice Agent.,لم يتم إعدادك كموظف اتصالات.
+No carrier could place the call.,تعذر على جميع المزودين إجراء المكالمة.
+Call failed,فشلت المكالمة
+Call summary,ملخص المكالمة

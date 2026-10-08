@@ -1,0 +1,324 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-08 09:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "tab_gen",
+  "default_country",
+  "default_sms_account",
+  "wrap_up_seconds",
+  "cb1",
+  "heartbeat_timeout",
+  "screen_pop",
+  "click_to_call",
+  "sb_vm",
+  "voicemail_message",
+  "voicemail_message_ar",
+  "sb_lookup",
+  "lookup_sources",
+  "tab_rec",
+  "store_recordings_locally",
+  "recording_retention_days",
+  "sb_ai",
+  "ai_enabled",
+  "ai_allowed_hosts",
+  "stt_url",
+  "stt_model",
+  "cb_ai",
+  "ollama_url",
+  "ollama_model",
+  "ai_language_hint",
+  "tab_bill",
+  "billing_enabled",
+  "billing_company",
+  "cb_b",
+  "usage_item",
+  "rental_item",
+  "tab_otp",
+  "otp_length",
+  "otp_expiry_seconds",
+  "otp_max_attempts",
+  "cb_o",
+  "otp_template",
+  "otp_email_subject",
+  "tab_sp",
+  "jssip_url",
+  "twilio_sdk_url"
+ ],
+ "fields": [
+  {
+   "fieldname": "tab_gen",
+   "fieldtype": "Tab Break",
+   "label": "General"
+  },
+  {
+   "fieldname": "default_country",
+   "fieldtype": "Data",
+   "label": "Default country (ISO)",
+   "default": "SA"
+  },
+  {
+   "fieldname": "default_sms_account",
+   "fieldtype": "Link",
+   "label": "Default SMS account",
+   "options": "Voice Provider Account"
+  },
+  {
+   "fieldname": "wrap_up_seconds",
+   "fieldtype": "Int",
+   "label": "Wrap-up (s)",
+   "default": "30"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "heartbeat_timeout",
+   "fieldtype": "Int",
+   "label": "Softphone offline after (s)",
+   "default": "150"
+  },
+  {
+   "fieldname": "screen_pop",
+   "fieldtype": "Check",
+   "label": "Screen-pop for agents",
+   "default": "1"
+  },
+  {
+   "fieldname": "click_to_call",
+   "fieldtype": "Check",
+   "label": "Call buttons on forms",
+   "default": "1"
+  },
+  {
+   "fieldname": "sb_vm",
+   "fieldtype": "Section Break",
+   "label": "Voicemail & messages"
+  },
+  {
+   "fieldname": "voicemail_message",
+   "fieldtype": "Small Text",
+   "label": "Voicemail prompt (EN)",
+   "default": "All our agents are busy. Please leave a message after the tone."
+  },
+  {
+   "fieldname": "voicemail_message_ar",
+   "fieldtype": "Small Text",
+   "label": "Voicemail prompt (AR)",
+   "default": "جميع موظفينا مشغولون حالياً، يرجى ترك رسالتك بعد سماع الصفارة."
+  },
+  {
+   "fieldname": "sb_lookup",
+   "fieldtype": "Section Break",
+   "label": "Caller identification (first match wins)"
+  },
+  {
+   "fieldname": "lookup_sources",
+   "fieldtype": "Table",
+   "label": "Lookup sources",
+   "options": "Voice Lookup Source"
+  },
+  {
+   "fieldname": "tab_rec",
+   "fieldtype": "Tab Break",
+   "label": "Recording & AI"
+  },
+  {
+   "fieldname": "store_recordings_locally",
+   "fieldtype": "Check",
+   "label": "Keep a private copy of recordings"
+  },
+  {
+   "fieldname": "recording_retention_days",
+   "fieldtype": "Int",
+   "label": "Recording retention (days, 0 = keep)",
+   "default": "365"
+  },
+  {
+   "fieldname": "sb_ai",
+   "fieldtype": "Section Break",
+   "label": "Self-hosted AI (PDPL residency)"
+  },
+  {
+   "fieldname": "ai_enabled",
+   "fieldtype": "Check",
+   "label": "Transcribe & summarise calls"
+  },
+  {
+   "fieldname": "ai_allowed_hosts",
+   "fieldtype": "Small Text",
+   "label": "Allowed AI hosts",
+   "description": "Comma separated host names. Calls to any other host are refused.",
+   "depends_on": "ai_enabled"
+  },
+  {
+   "fieldname": "stt_url",
+   "fieldtype": "Data",
+   "label": "Speech-to-text URL (OpenAI-compatible)",
+   "depends_on": "ai_enabled",
+   "description": "e.g. https://ai.internal.sa/v1/audio/transcriptions"
+  },
+  {
+   "fieldname": "stt_model",
+   "fieldtype": "Data",
+   "label": "STT model",
+   "default": "whisper-1",
+   "depends_on": "ai_enabled"
+  },
+  {
+   "fieldname": "cb_ai",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ollama_url",
+   "fieldtype": "Data",
+   "label": "Ollama URL",
+   "depends_on": "ai_enabled",
+   "description": "e.g. https://ai.internal.sa:11434"
+  },
+  {
+   "fieldname": "ollama_model",
+   "fieldtype": "Data",
+   "label": "Summary model",
+   "default": "qwen2.5:7b",
+   "depends_on": "ai_enabled"
+  },
+  {
+   "fieldname": "ai_language_hint",
+   "fieldtype": "Data",
+   "label": "Language hint",
+   "description": "ar, en or blank for auto",
+   "depends_on": "ai_enabled"
+  },
+  {
+   "fieldname": "tab_bill",
+   "fieldtype": "Tab Break",
+   "label": "Billing"
+  },
+  {
+   "fieldname": "billing_enabled",
+   "fieldtype": "Check",
+   "label": "Monthly reseller invoicing (ERPNext)"
+  },
+  {
+   "fieldname": "billing_company",
+   "fieldtype": "Data",
+   "label": "Company",
+   "depends_on": "billing_enabled"
+  },
+  {
+   "fieldname": "cb_b",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "usage_item",
+   "fieldtype": "Data",
+   "label": "Usage item code",
+   "depends_on": "billing_enabled"
+  },
+  {
+   "fieldname": "rental_item",
+   "fieldtype": "Data",
+   "label": "Number rental item code",
+   "depends_on": "billing_enabled"
+  },
+  {
+   "fieldname": "tab_otp",
+   "fieldtype": "Tab Break",
+   "label": "OTP"
+  },
+  {
+   "fieldname": "otp_length",
+   "fieldtype": "Int",
+   "label": "Code length",
+   "default": "6"
+  },
+  {
+   "fieldname": "otp_expiry_seconds",
+   "fieldtype": "Int",
+   "label": "Expiry (s)",
+   "default": "300"
+  },
+  {
+   "fieldname": "otp_max_attempts",
+   "fieldtype": "Int",
+   "label": "Max attempts",
+   "default": "5"
+  },
+  {
+   "fieldname": "cb_o",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "otp_template",
+   "fieldtype": "Small Text",
+   "label": "SMS / email text",
+   "default": "{code} is your verification code. Valid for {minutes} minutes."
+  },
+  {
+   "fieldname": "otp_email_subject",
+   "fieldtype": "Data",
+   "label": "Email subject",
+   "default": "Your verification code"
+  },
+  {
+   "fieldname": "tab_sp",
+   "fieldtype": "Tab Break",
+   "label": "Softphone"
+  },
+  {
+   "fieldname": "jssip_url",
+   "fieldtype": "Data",
+   "label": "SIP softphone library URL",
+   "default": "https://cdn.jsdelivr.net/npm/jssip@3.10.1/dist/jssip.min.js"
+  },
+  {
+   "fieldname": "twilio_sdk_url",
+   "fieldtype": "Data",
+   "label": "Twilio Voice SDK URL",
+   "default": "https://cdn.jsdelivr.net/npm/@twilio/voice-sdk@2.12.1/dist/twilio.min.js"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-10-08 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec Voice",
+ "name": "Voice Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "report": 1,
+   "export": 1
+  },
+  {
+   "role": "Voice Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "report": 1,
+   "export": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "issingle": 1
+}

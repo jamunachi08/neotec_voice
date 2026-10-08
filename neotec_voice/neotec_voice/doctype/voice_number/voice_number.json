@@ -1,0 +1,170 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-08 09:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "number",
+  "label",
+  "provider_account",
+  "cb1",
+  "enabled",
+  "default_target_type",
+  "default_queue",
+  "default_agent",
+  "sb_bill",
+  "billing_party_type",
+  "billing_party",
+  "cb2",
+  "sell_rate_plan",
+  "monthly_fee",
+  "last_billed_period"
+ ],
+ "fields": [
+  {
+   "fieldname": "number",
+   "fieldtype": "Data",
+   "label": "Number (E.164)",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "label",
+   "fieldtype": "Data",
+   "label": "Label",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "provider_account",
+   "fieldtype": "Link",
+   "label": "Provider Account",
+   "options": "Voice Provider Account",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": "1"
+  },
+  {
+   "fieldname": "default_target_type",
+   "fieldtype": "Select",
+   "label": "Default destination",
+   "options": "\nQueue\nAgent\nVoicemail"
+  },
+  {
+   "fieldname": "default_queue",
+   "fieldtype": "Link",
+   "label": "Queue",
+   "options": "Voice Queue",
+   "depends_on": "eval:doc.default_target_type=='Queue'"
+  },
+  {
+   "fieldname": "default_agent",
+   "fieldtype": "Link",
+   "label": "Agent (also outbound caller-ID owner)",
+   "options": "Voice Agent"
+  },
+  {
+   "fieldname": "sb_bill",
+   "fieldtype": "Section Break",
+   "label": "Reseller billing",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "billing_party_type",
+   "fieldtype": "Link",
+   "label": "Bill to type",
+   "options": "DocType",
+   "default": "Customer"
+  },
+  {
+   "fieldname": "billing_party",
+   "fieldtype": "Dynamic Link",
+   "label": "Bill to",
+   "options": "billing_party_type"
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sell_rate_plan",
+   "fieldtype": "Link",
+   "label": "Sell Rate Plan",
+   "options": "Voice Rate Plan"
+  },
+  {
+   "fieldname": "monthly_fee",
+   "fieldtype": "Currency",
+   "label": "Monthly number fee"
+  },
+  {
+   "fieldname": "last_billed_period",
+   "fieldtype": "Data",
+   "label": "Last billed period",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-10-08 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec Voice",
+ "name": "Voice Number",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "report": 1,
+   "export": 1
+  },
+  {
+   "role": "Voice Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "report": 1,
+   "export": 1
+  },
+  {
+   "role": "Voice Agent",
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "delete": 0,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "report": 1,
+   "export": 0
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "field:number",
+ "title_field": "label",
+ "search_fields": "label,provider_account",
+ "naming_rule": "By fieldname"
+}

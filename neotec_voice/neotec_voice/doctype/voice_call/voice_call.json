@@ -1,0 +1,475 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-08 09:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "direction",
+  "status",
+  "from_number",
+  "to_number",
+  "cb1",
+  "agent",
+  "queue",
+  "did",
+  "route",
+  "cb2",
+  "party_type",
+  "party",
+  "party_name",
+  "sb_wrap",
+  "disposition",
+  "follow_up_on",
+  "cb3",
+  "notes",
+  "sb_time",
+  "started_at",
+  "answered_at",
+  "ended_at",
+  "cb4",
+  "duration",
+  "talk_time",
+  "wait_time",
+  "hangup_cause",
+  "tab_ai",
+  "recording_url",
+  "recording_file",
+  "recording_purged",
+  "cb5",
+  "ai_status",
+  "sentiment",
+  "sb_ai",
+  "summary",
+  "action_items",
+  "transcript",
+  "tab_money",
+  "buy_cost",
+  "cost_from_vendor",
+  "sell_amount",
+  "cb6",
+  "billing_party_type",
+  "billing_party",
+  "billed",
+  "sales_invoice",
+  "tab_tech",
+  "provider_account",
+  "vendor",
+  "external_id",
+  "vendor_ref",
+  "cb7",
+  "dedupe_key",
+  "rang_agents",
+  "attempt_log",
+  "sb_links",
+  "links"
+ ],
+ "fields": [
+  {
+   "fieldname": "direction",
+   "fieldtype": "Select",
+   "label": "Direction",
+   "options": "Inbound\nOutbound\nInternal",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Initiated\nQueued\nRinging\nIn Progress\nOn Hold\nCompleted\nBusy\nNo Answer\nMissed\nVoicemail\nFailed\nCanceled",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "from_number",
+   "fieldtype": "Data",
+   "label": "From",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "to_number",
+   "fieldtype": "Data",
+   "label": "To",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "agent",
+   "fieldtype": "Link",
+   "label": "Agent",
+   "options": "User",
+   "read_only": 1,
+   "in_standard_filter": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "queue",
+   "fieldtype": "Link",
+   "label": "Queue",
+   "options": "Voice Queue",
+   "read_only": 1
+  },
+  {
+   "fieldname": "did",
+   "fieldtype": "Link",
+   "label": "Number",
+   "options": "Voice Number",
+   "read_only": 1
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Link",
+   "label": "Route",
+   "options": "Voice Route",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "party_type",
+   "fieldtype": "Link",
+   "label": "Party Type",
+   "options": "DocType",
+   "read_only": 1
+  },
+  {
+   "fieldname": "party",
+   "fieldtype": "Dynamic Link",
+   "label": "Party",
+   "options": "party_type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "party_name",
+   "fieldtype": "Data",
+   "label": "Party Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_wrap",
+   "fieldtype": "Section Break",
+   "label": "Wrap-up"
+  },
+  {
+   "fieldname": "disposition",
+   "fieldtype": "Link",
+   "label": "Disposition",
+   "options": "Voice Disposition",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "follow_up_on",
+   "fieldtype": "Date",
+   "label": "Follow up on"
+  },
+  {
+   "fieldname": "cb3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "sb_time",
+   "fieldtype": "Section Break",
+   "label": "Timing"
+  },
+  {
+   "fieldname": "started_at",
+   "fieldtype": "Datetime",
+   "label": "Started",
+   "read_only": 1
+  },
+  {
+   "fieldname": "answered_at",
+   "fieldtype": "Datetime",
+   "label": "Answered",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ended_at",
+   "fieldtype": "Datetime",
+   "label": "Ended",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "duration",
+   "fieldtype": "Int",
+   "label": "Duration (s)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "talk_time",
+   "fieldtype": "Int",
+   "label": "Talk time (s)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "wait_time",
+   "fieldtype": "Int",
+   "label": "Wait time (s)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "hangup_cause",
+   "fieldtype": "Data",
+   "label": "Hang-up cause",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tab_ai",
+   "fieldtype": "Tab Break",
+   "label": "Recording & AI"
+  },
+  {
+   "fieldname": "recording_url",
+   "fieldtype": "Small Text",
+   "label": "Recording URL",
+   "read_only": 1
+  },
+  {
+   "fieldname": "recording_file",
+   "fieldtype": "Attach",
+   "label": "Recording (private copy)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "recording_purged",
+   "fieldtype": "Check",
+   "label": "Recording purged (retention)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ai_status",
+   "fieldtype": "Select",
+   "label": "AI status",
+   "options": "\nPending\nDone\nFailed\nSkipped",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sentiment",
+   "fieldtype": "Select",
+   "label": "Sentiment",
+   "options": "\nPositive\nNeutral\nNegative",
+   "read_only": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "sb_ai",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "summary",
+   "fieldtype": "Text",
+   "label": "Summary",
+   "read_only": 1
+  },
+  {
+   "fieldname": "action_items",
+   "fieldtype": "Small Text",
+   "label": "Action items",
+   "read_only": 1
+  },
+  {
+   "fieldname": "transcript",
+   "fieldtype": "Long Text",
+   "label": "Transcript",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tab_money",
+   "fieldtype": "Tab Break",
+   "label": "Billing"
+  },
+  {
+   "fieldname": "buy_cost",
+   "fieldtype": "Currency",
+   "label": "Carrier cost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cost_from_vendor",
+   "fieldtype": "Check",
+   "label": "Cost reported by vendor",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sell_amount",
+   "fieldtype": "Currency",
+   "label": "Billable amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "billing_party_type",
+   "fieldtype": "Link",
+   "label": "Bill to type",
+   "options": "DocType",
+   "read_only": 1
+  },
+  {
+   "fieldname": "billing_party",
+   "fieldtype": "Dynamic Link",
+   "label": "Bill to",
+   "options": "billing_party_type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "billed",
+   "fieldtype": "Check",
+   "label": "Billed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sales_invoice",
+   "fieldtype": "Data",
+   "label": "Sales Invoice",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tab_tech",
+   "fieldtype": "Tab Break",
+   "label": "Technical"
+  },
+  {
+   "fieldname": "provider_account",
+   "fieldtype": "Link",
+   "label": "Provider Account",
+   "options": "Voice Provider Account",
+   "read_only": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Data",
+   "label": "Vendor",
+   "read_only": 1
+  },
+  {
+   "fieldname": "external_id",
+   "fieldtype": "Data",
+   "label": "Vendor call id",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "vendor_ref",
+   "fieldtype": "Data",
+   "label": "Vendor leg / channel id",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "dedupe_key",
+   "fieldtype": "Data",
+   "label": "Dedupe key",
+   "read_only": 1,
+   "unique": 1,
+   "hidden": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "rang_agents",
+   "fieldtype": "Small Text",
+   "label": "Rang agents",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "attempt_log",
+   "fieldtype": "Small Text",
+   "label": "Failover attempts",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_links",
+   "fieldtype": "Section Break",
+   "label": "Linked documents"
+  },
+  {
+   "fieldname": "links",
+   "fieldtype": "Table",
+   "label": "Links",
+   "options": "Dynamic Link"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-10-08 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec Voice",
+ "name": "Voice Call",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "report": 1,
+   "export": 1
+  },
+  {
+   "role": "Voice Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "report": 1,
+   "export": 1
+  },
+  {
+   "role": "Voice Agent",
+   "read": 1,
+   "write": 1,
+   "create": 0,
+   "delete": 0,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "report": 1,
+   "export": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0,
+ "autoname": "VC-.YYYY.-.#######",
+ "title_field": "party_name",
+ "search_fields": "from_number,to_number,party_name,agent",
+ "naming_rule": "Expression (old style)"
+}

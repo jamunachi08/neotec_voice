@@ -1,0 +1,101 @@
+/* Neotec Voice Hub — styles built on Frappe theme variables (light + dark). */
+.ntv { --ntv-ok: #16a34a; --ntv-warn: #d97706; --ntv-busy: #2563eb; --ntv-off: var(--gray-500, #8d99a6); padding-bottom: 48px; }
+.ntv h2 { font-size: 1.35rem; font-weight: 600; margin: 0 0 4px; }
+.ntv h3 { font-size: 1.05rem; font-weight: 600; margin: 0; }
+.ntv h4 { font-size: 0.95rem; font-weight: 600; margin: 0 0 8px; }
+.ntv p { max-width: 72ch; }
+
+/* status signal: a dot that reads like a line-state lamp */
+.ntv-signal { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--text-muted); }
+.ntv-signal::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--ntv-off); flex: none; }
+.ntv-ok::before { background: var(--ntv-ok); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ntv-ok) 22%, transparent); }
+.ntv-warn::before { background: var(--ntv-warn); }
+.ntv-busy::before { background: var(--ntv-busy); }
+
+/* summary band */
+.ntv-summary { padding: 20px 0 8px; border-bottom: 1px solid var(--border-color); margin-bottom: 8px; }
+.ntv-lede { font-size: 1.05rem; color: var(--text-color); margin-bottom: 12px; }
+.ntv-figures { display: flex; flex-wrap: wrap; gap: 8px 40px; margin: 0 0 16px; }
+.ntv-figures div { min-width: 96px; }
+.ntv-figures dt { font-weight: 400; font-size: 0.8rem; color: var(--text-muted); }
+.ntv-figures dd { margin: 0; font-size: 1.6rem; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--heading-color, var(--text-color)); }
+.ntv-figures dd.ntv-small { font-size: 1rem; padding-top: 8px; }
+
+/* hub: the patch panel */
+.ntv-rack { padding: 18px 0; border-bottom: 1px solid var(--border-color); }
+.ntv-rack header { display: grid; grid-template-columns: minmax(160px, 220px) 1fr; gap: 16px; align-items: baseline; margin-bottom: 12px; }
+.ntv-rack header p { margin: 0; color: var(--text-muted); font-size: 0.85rem; }
+.ntv-ports { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
+.ntv-port {
+	position: relative; display: flex; flex-direction: column; gap: 4px; text-align: start;
+	padding: 12px 14px 12px 18px; background: var(--card-bg, var(--fg-color)); color: var(--text-color);
+	border: 1px solid var(--border-color); border-radius: 6px; cursor: pointer; min-height: 118px;
+}
+.ntv-port::before { content: ""; position: absolute; inset-inline-start: 0; top: 10px; bottom: 10px; width: 4px; border-radius: 0 3px 3px 0; background: var(--vc); }
+[dir="rtl"] .ntv-port::before { border-radius: 3px 0 0 3px; }
+.ntv-port:hover { border-color: var(--vc); }
+.ntv-port:focus-visible { outline: 2px solid var(--vc); outline-offset: 2px; }
+.ntv-port-name { font-weight: 600; font-size: 0.95rem; }
+.ntv-port-tag { font-size: 0.82rem; color: var(--text-color); }
+.ntv-port-caps { font-size: 0.75rem; color: var(--text-muted); flex: 1; }
+
+/* vendor page */
+.ntv-vendor { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: 20px 0 16px 16px; border-inline-start: 4px solid var(--vc); margin: 12px 0 16px; }
+.ntv-vendor p { color: var(--text-muted); margin: 0 0 10px; }
+.ntv-caps { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.ntv-caps li { font-size: 0.75rem; padding: 2px 8px; border-radius: 10px; background: var(--subtle-fg, var(--control-bg)); color: var(--text-color); }
+.ntv-account { display: flex; flex-direction: column; gap: 8px; min-width: 220px; }
+.ntv-account label { font-size: 0.8rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 4px; }
+.ntv-body { display: grid; grid-template-columns: 200px 1fr; gap: 28px; }
+.ntv-steps { list-style: none; counter-reset: step; padding: 0; margin: 0; position: sticky; top: 80px; align-self: start; }
+.ntv-steps li { counter-increment: step; }
+.ntv-steps button { width: 100%; display: flex; gap: 10px; align-items: center; text-align: start; background: none; border: 0; padding: 8px 6px; border-radius: 6px; color: var(--text-muted); font-size: 0.9rem; }
+.ntv-steps button::before { content: counter(step); width: 22px; height: 22px; flex: none; border-radius: 50%; display: grid; place-items: center; font-size: 0.75rem; border: 1px solid var(--border-color); }
+.ntv-steps button.active { color: var(--text-color); background: var(--subtle-fg, var(--control-bg)); font-weight: 600; }
+.ntv-steps button.active::before { background: var(--text-color); color: var(--bg-color, #fff); border-color: var(--text-color); }
+.ntv-steps button:disabled { opacity: 0.45; cursor: not-allowed; }
+.ntv-panel section { margin-bottom: 24px; }
+.ntv-hook { margin-bottom: 12px; }
+.ntv-hook label { font-size: 0.85rem; font-weight: 500; margin-bottom: 4px; display: block; }
+.ntv-copyrow { display: flex; gap: 6px; }
+.ntv-copyrow input { font-family: var(--font-stack-monospace, monospace); font-size: 0.78rem; }
+.ntv-howto { padding-inline-start: 20px; }
+.ntv-howto li { margin-bottom: 6px; max-width: 78ch; }
+.ntv-snippet-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.ntv-snippet pre { max-height: 420px; overflow: auto; background: var(--control-bg); border: 1px solid var(--border-color); border-radius: 6px; padding: 12px; font-size: 0.75rem; direction: ltr; text-align: left; }
+.ntv-table td, .ntv-table th { vertical-align: middle; }
+.ntv-toolbar { display: flex; gap: 8px; margin-bottom: 12px; }
+.ntv-empty { padding: 28px; border: 1px dashed var(--border-color); border-radius: 6px; color: var(--text-muted); }
+
+/* console */
+.ntv-me { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border-color); margin-bottom: 16px; }
+.ntv-dial { display: flex; gap: 6px; margin-inline-start: auto; }
+.ntv-board { display: grid; grid-template-columns: minmax(260px, 1fr) 2fr; gap: 28px; }
+.ntv-agents { list-style: none; padding: 0; margin: 0; }
+.ntv-agents li { display: grid; grid-template-columns: 110px 1fr; gap: 2px 10px; padding: 8px 0; border-bottom: 1px solid var(--border-color); }
+.ntv-agents small { grid-column: 2; color: var(--text-muted); }
+
+/* call cards (screen-pop) */
+.ntv-cards { position: fixed; inset-inline-end: 20px; bottom: 20px; z-index: 1040; display: flex; flex-direction: column; gap: 10px; width: 320px; max-width: calc(100vw - 40px); }
+.ntv-card { background: var(--card-bg, var(--fg-color)); color: var(--text-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 14px; box-shadow: var(--shadow-lg, 0 8px 24px rgba(0, 0, 0, 0.18)); }
+.ntv-card[data-state="ringing"] { border-inline-start: 4px solid var(--ntv-busy, #2563eb); animation: ntv-in 220ms ease-out; }
+.ntv-card[data-state="talking"] { border-inline-start: 4px solid #16a34a; }
+.ntv-card[data-state="wrap"] { border-inline-start: 4px solid #d97706; }
+.ntv-card-head { font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px; }
+.ntv-card-who { font-size: 1.1rem; font-weight: 600; margin-top: 2px; }
+.ntv-card-sub { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; direction: ltr; text-align: start; }
+.ntv-card-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.ntv-timer { font-variant-numeric: tabular-nums; margin-inline-start: auto; }
+.ntv-notes { margin-top: 6px; font-size: 0.85rem; }
+.ntv-pulse { width: 8px; height: 8px; border-radius: 50%; background: #2563eb; animation: ntv-pulse 1.2s infinite; }
+.ntv-nav button[data-softphone="ready"] { color: #16a34a; }
+.ntv-nav button[data-softphone="error"] { color: #dc2626; }
+.ntv-nav button[data-softphone="in call"] { color: #2563eb; }
+@keyframes ntv-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+@keyframes ntv-in { from { transform: translateY(8px); opacity: 0; } to { transform: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .ntv-card, .ntv-pulse { animation: none; } }
+@media (max-width: 768px) {
+	.ntv-body, .ntv-board, .ntv-rack header { grid-template-columns: 1fr; }
+	.ntv-steps { position: static; display: flex; overflow-x: auto; }
+	.ntv-steps button { white-space: nowrap; }
+}

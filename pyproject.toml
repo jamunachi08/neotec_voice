@@ -1,0 +1,20 @@
+[project]
+name = "neotec_voice"
+authors = [{ name = "Neotec Integrated Solutions" }]
+description = "Neotec Voice Hub — vendor-neutral voice, contact-centre and voice-reseller platform for Frappe / ERPNext"
+requires-python = ">=3.10"
+readme = "README.md"
+dynamic = ["version"]
+# Everything used (requests, PyJWT, cryptography, phonenumbers, passlib) already ships with Frappe v15.
+dependencies = []
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.bench.frappe-dependencies]
+frappe = ">=15.0.0,<16.0.0"
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"

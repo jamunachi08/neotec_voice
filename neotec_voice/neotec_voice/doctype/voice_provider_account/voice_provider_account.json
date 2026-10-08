@@ -1,0 +1,179 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-08 09:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "account_name",
+  "vendor",
+  "cb1",
+  "enabled",
+  "is_default",
+  "buy_rate_plan",
+  "sb_health",
+  "last_test_ok",
+  "last_test_on",
+  "cb2",
+  "last_webhook_on",
+  "last_test_message",
+  "sb_hook",
+  "webhook_key",
+  "webhook_token",
+  "sb_cfg",
+  "config"
+ ],
+ "fields": [
+  {
+   "fieldname": "account_name",
+   "fieldtype": "Data",
+   "label": "Account Name",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Data",
+   "label": "Vendor",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "set_only_once": 1,
+   "description": "Configure on the vendor's setup page (Voice Hub)"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": "1",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "is_default",
+   "fieldtype": "Check",
+   "label": "Default carrier"
+  },
+  {
+   "fieldname": "buy_rate_plan",
+   "fieldtype": "Link",
+   "label": "Buy Rate Plan",
+   "options": "Voice Rate Plan",
+   "description": "What this carrier charges you; used when the vendor doesn't report cost"
+  },
+  {
+   "fieldname": "sb_health",
+   "fieldtype": "Section Break",
+   "label": "Health"
+  },
+  {
+   "fieldname": "last_test_ok",
+   "fieldtype": "Check",
+   "label": "Last test OK",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_test_on",
+   "fieldtype": "Datetime",
+   "label": "Last tested on",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_webhook_on",
+   "fieldtype": "Datetime",
+   "label": "Last webhook received",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_test_message",
+   "fieldtype": "Small Text",
+   "label": "Last test message",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_hook",
+   "fieldtype": "Section Break",
+   "label": "Webhook security",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "webhook_key",
+   "fieldtype": "Data",
+   "label": "Webhook key",
+   "read_only": 1,
+   "unique": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "webhook_token",
+   "fieldtype": "Password",
+   "label": "Webhook token",
+   "no_copy": 1,
+   "length": 100
+  },
+  {
+   "fieldname": "sb_cfg",
+   "fieldtype": "Section Break",
+   "label": "Configuration (managed by setup page)",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "config",
+   "fieldtype": "Code",
+   "label": "Config (JSON)",
+   "options": "JSON",
+   "read_only": 1,
+   "description": "Secrets are not stored here; they are encrypted in Frappe's password store."
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-10-08 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec Voice",
+ "name": "Voice Provider Account",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "report": 1,
+   "export": 1
+  },
+  {
+   "role": "Voice Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "report": 1,
+   "export": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "field:account_name",
+ "title_field": "account_name",
+ "search_fields": "vendor",
+ "naming_rule": "By fieldname"
+}

@@ -1,0 +1,185 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-08 09:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "route_name",
+  "enabled",
+  "priority",
+  "sb_match",
+  "did",
+  "provider_account",
+  "caller_prefix",
+  "cb1",
+  "days",
+  "from_time",
+  "to_time",
+  "sb_target",
+  "target_type",
+  "target_queue",
+  "target_agent",
+  "target_number",
+  "cb2",
+  "message",
+  "message_ar"
+ ],
+ "fields": [
+  {
+   "fieldname": "route_name",
+   "fieldtype": "Data",
+   "label": "Route Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": "1",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Int",
+   "label": "Priority (lower first)",
+   "default": "10",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "sb_match",
+   "fieldtype": "Section Break",
+   "label": "Match"
+  },
+  {
+   "fieldname": "did",
+   "fieldtype": "Link",
+   "label": "Number (blank = any)",
+   "options": "Voice Number",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "provider_account",
+   "fieldtype": "Link",
+   "label": "Provider (blank = any)",
+   "options": "Voice Provider Account"
+  },
+  {
+   "fieldname": "caller_prefix",
+   "fieldtype": "Data",
+   "label": "Caller prefixes",
+   "description": "Comma separated, e.g. +9665, +971"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "days",
+   "fieldtype": "Data",
+   "label": "Days",
+   "default": "Sun,Mon,Tue,Wed,Thu",
+   "description": "Blank = every day"
+  },
+  {
+   "fieldname": "from_time",
+   "fieldtype": "Time",
+   "label": "From"
+  },
+  {
+   "fieldname": "to_time",
+   "fieldtype": "Time",
+   "label": "To",
+   "description": "Overnight windows (22:00 → 06:00) are supported"
+  },
+  {
+   "fieldname": "sb_target",
+   "fieldtype": "Section Break",
+   "label": "Send to"
+  },
+  {
+   "fieldname": "target_type",
+   "fieldtype": "Select",
+   "label": "Target",
+   "options": "Queue\nAgent\nNumber\nVoicemail\nMessage",
+   "reqd": 1,
+   "default": "Queue",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "target_queue",
+   "fieldtype": "Link",
+   "label": "Queue",
+   "options": "Voice Queue",
+   "depends_on": "eval:doc.target_type=='Queue'"
+  },
+  {
+   "fieldname": "target_agent",
+   "fieldtype": "Link",
+   "label": "Agent",
+   "options": "Voice Agent",
+   "depends_on": "eval:doc.target_type=='Agent'"
+  },
+  {
+   "fieldname": "target_number",
+   "fieldtype": "Data",
+   "label": "Number",
+   "depends_on": "eval:doc.target_type=='Number'"
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "message",
+   "fieldtype": "Small Text",
+   "label": "Message (EN)"
+  },
+  {
+   "fieldname": "message_ar",
+   "fieldtype": "Small Text",
+   "label": "Message (AR)"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-10-08 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec Voice",
+ "name": "Voice Route",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "report": 1,
+   "export": 1
+  },
+  {
+   "role": "Voice Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "report": 1,
+   "export": 1
+  }
+ ],
+ "sort_field": "priority",
+ "sort_order": "ASC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "field:route_name",
+ "naming_rule": "By fieldname"
+}

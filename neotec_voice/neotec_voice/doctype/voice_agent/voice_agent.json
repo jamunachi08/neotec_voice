@@ -1,0 +1,218 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-08 09:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "user",
+  "full_name",
+  "enabled",
+  "cb1",
+  "status",
+  "status_since",
+  "wrap_up_until",
+  "sb_dev",
+  "device",
+  "extension",
+  "mobile_no",
+  "cb2",
+  "default_account",
+  "sip_username",
+  "sip_password",
+  "sb_ids",
+  "identities",
+  "sb_meta",
+  "skills",
+  "cb3",
+  "last_seen",
+  "last_call_end"
+ ],
+ "fields": [
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "User",
+   "options": "User",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name",
+   "fetch_from": "user.full_name",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": "1"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Offline\nAvailable\nOn Call\nWrap Up\nAway",
+   "default": "Offline",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "status_since",
+   "fieldtype": "Datetime",
+   "label": "Status since",
+   "read_only": 1
+  },
+  {
+   "fieldname": "wrap_up_until",
+   "fieldtype": "Datetime",
+   "label": "Wrap-up until",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "sb_dev",
+   "fieldtype": "Section Break",
+   "label": "Device"
+  },
+  {
+   "fieldname": "device",
+   "fieldtype": "Select",
+   "label": "Rings on",
+   "options": "Softphone\nDesk Phone\nMobile",
+   "default": "Softphone",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "extension",
+   "fieldtype": "Data",
+   "label": "Default extension",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "mobile_no",
+   "fieldtype": "Data",
+   "label": "Mobile (call-back)",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_account",
+   "fieldtype": "Link",
+   "label": "Default provider account",
+   "options": "Voice Provider Account"
+  },
+  {
+   "fieldname": "sip_username",
+   "fieldtype": "Data",
+   "label": "SIP username (softphone)"
+  },
+  {
+   "fieldname": "sip_password",
+   "fieldtype": "Password",
+   "label": "SIP password (softphone)"
+  },
+  {
+   "fieldname": "sb_ids",
+   "fieldtype": "Section Break",
+   "label": "Identities per provider"
+  },
+  {
+   "fieldname": "identities",
+   "fieldtype": "Table",
+   "label": "Identities",
+   "options": "Voice Agent Identity"
+  },
+  {
+   "fieldname": "sb_meta",
+   "fieldtype": "Section Break",
+   "label": "Activity",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "skills",
+   "fieldtype": "Small Text",
+   "label": "Skills / languages"
+  },
+  {
+   "fieldname": "cb3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_seen",
+   "fieldtype": "Datetime",
+   "label": "Last heartbeat",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_call_end",
+   "fieldtype": "Datetime",
+   "label": "Last call ended",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-10-08 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec Voice",
+ "name": "Voice Agent",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "report": 1,
+   "export": 1
+  },
+  {
+   "role": "Voice Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "report": 1,
+   "export": 1
+  },
+  {
+   "role": "Voice Agent",
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "delete": 0,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "report": 1,
+   "export": 0
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "field:user",
+ "title_field": "full_name",
+ "search_fields": "full_name,extension",
+ "naming_rule": "By fieldname"
+}

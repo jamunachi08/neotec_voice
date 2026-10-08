@@ -1,0 +1,114 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-08 09:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "route_name",
+  "enabled",
+  "priority",
+  "cb1",
+  "prefixes",
+  "strip_digits",
+  "prepend",
+  "sb_car",
+  "carriers"
+ ],
+ "fields": [
+  {
+   "fieldname": "route_name",
+   "fieldtype": "Data",
+   "label": "Route Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": "1",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Int",
+   "label": "Priority (lower first)",
+   "default": "10",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "prefixes",
+   "fieldtype": "Small Text",
+   "label": "Destination prefixes",
+   "default": "*",
+   "description": "Comma separated (+9665, +971, *)"
+  },
+  {
+   "fieldname": "strip_digits",
+   "fieldtype": "Int",
+   "label": "Strip leading digits"
+  },
+  {
+   "fieldname": "prepend",
+   "fieldtype": "Data",
+   "label": "Prepend"
+  },
+  {
+   "fieldname": "sb_car",
+   "fieldtype": "Section Break",
+   "label": "Carriers (tried in order; automatic failover)"
+  },
+  {
+   "fieldname": "carriers",
+   "fieldtype": "Table",
+   "label": "Carriers",
+   "options": "Voice Outbound Carrier",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-10-08 09:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Neotec Voice",
+ "name": "Voice Outbound Route",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "report": 1,
+   "export": 1
+  },
+  {
+   "role": "Voice Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "report": 1,
+   "export": 1
+  }
+ ],
+ "sort_field": "priority",
+ "sort_order": "ASC",
+ "states": [],
+ "track_changes": 1,
+ "autoname": "field:route_name",
+ "naming_rule": "By fieldname"
+}
